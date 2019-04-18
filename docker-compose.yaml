@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+  sentimentanalysis:
+    # source: https://github.com/openfaas/faas/tree/master/sample-functions/SentimentAnalysis
+    build: SentimentAnalysis_${FLAVOR}
+    image: functions/sentimentanalysis-${FLAVOR}:latest
+    deploy:
+      replicas: 3
+  figlet:
+    # https://github.com/openfaas/faas/tree/master/sample-functions/figlet
+    build: figlet_${FLAVOR}
+    image: functions/figlet-${FLAVOR}:latest
+    deploy:
+      replicas: 3
